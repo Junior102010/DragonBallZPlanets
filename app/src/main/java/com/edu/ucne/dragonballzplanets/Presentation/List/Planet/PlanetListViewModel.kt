@@ -1,15 +1,15 @@
-package com.edu.ucne.dragonballzplanets.Presentation.List
+package com.edu.ucne.dragonballzplanets.Presentation.List.Planet
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.edu.ucne.dragonballzplanets.Data.Remote.Resource
 import com.edu.ucne.dragonballzplanets.Domain.Repository.PlanetRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
 class PlanetListViewModel @Inject constructor(

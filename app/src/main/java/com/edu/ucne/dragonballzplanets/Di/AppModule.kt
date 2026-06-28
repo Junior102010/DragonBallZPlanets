@@ -1,8 +1,11 @@
 package com.edu.ucne.dragonballzplanets.Di
 
 import com.edu.ucne.dragonballzplanets.Data.Remote.DragonBallApi
+import com.edu.ucne.dragonballzplanets.Data.Remote.RemoteDataSource.CharacterRemoteDataSource
 import com.edu.ucne.dragonballzplanets.Data.Remote.RemoteDataSource.PlanetRemoteDataSource
+import com.edu.ucne.dragonballzplanets.Data.Repository.CharacterRepositoryImpl
 import com.edu.ucne.dragonballzplanets.Data.Repository.PlanetRepositoryImpl
+import com.edu.ucne.dragonballzplanets.Domain.Repository.CharacterRepository
 import com.edu.ucne.dragonballzplanets.Domain.Repository.PlanetRepository
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -37,7 +40,13 @@ object AppModule{
     }
     @Provides
     @Singleton
-    fun provideRepository(planetRemoteDataSource: PlanetRemoteDataSource): PlanetRepository {
+    fun providePlanetRepository(planetRemoteDataSource: PlanetRemoteDataSource): PlanetRepository {
         return PlanetRepositoryImpl(planetRemoteDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCharacterRepository(characterRemoteDataSource: CharacterRemoteDataSource): CharacterRepository {
+        return CharacterRepositoryImpl(characterRemoteDataSource)
     }
 }

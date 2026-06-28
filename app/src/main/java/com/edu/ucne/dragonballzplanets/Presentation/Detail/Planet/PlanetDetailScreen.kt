@@ -1,4 +1,4 @@
-package com.edu.ucne.dragonballzplanets.Presentation.Detail
+package com.edu.ucne.dragonballzplanets.Presentation.Detail.Planet
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

@@ -1,6 +1,5 @@
-package com.edu.ucne.dragonballzplanets.Domain.UseCase
+package com.edu.ucne.dragonballzplanets.Domain.UseCase.Planets
 
-import com.edu.ucne.dragonballzplanets.Data.Dto.PlanetDto
 import com.edu.ucne.dragonballzplanets.Data.Remote.Resource
 import com.edu.ucne.dragonballzplanets.Domain.Model.Planet
 import com.edu.ucne.dragonballzplanets.Domain.Repository.PlanetRepository
