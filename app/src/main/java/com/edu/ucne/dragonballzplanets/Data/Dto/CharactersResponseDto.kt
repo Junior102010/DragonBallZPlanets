@@ -15,11 +15,11 @@ data class CharacterDto(
     val ki: String,
     val race: String,
     val gender: String,
-    val descripcion: String,
+    val description: String,
     val image: String,
     val maxKi: String,
 ){
     fun toDomain() = Character(
-        id,name,ki,race,gender,descripcion,image,maxKi
+        id, name, ki, race, gender, description, image, maxKi
     )
 }

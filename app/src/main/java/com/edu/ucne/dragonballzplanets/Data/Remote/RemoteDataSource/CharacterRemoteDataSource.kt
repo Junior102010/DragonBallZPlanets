@@ -1,10 +1,9 @@
 package com.edu.ucne.dragonballzplanets.Data.Remote.RemoteDataSource
 
-import coil3.network.HttpException
 import com.edu.ucne.dragonballzplanets.Data.Dto.CharacterDto
 import com.edu.ucne.dragonballzplanets.Data.Dto.CharactersResponseDto
 import com.edu.ucne.dragonballzplanets.Data.Remote.DragonBallApi
-import dagger.hilt.android.lifecycle.HiltViewModel
+import retrofit2.HttpException
 import javax.inject.Inject
 
 class CharacterRemoteDataSource @Inject constructor(
@@ -19,6 +18,15 @@ class CharacterRemoteDataSource @Inject constructor(
 
     ): Result<CharactersResponseDto>{
         try {
+            if (!name.isNullOrEmpty()) {
+                val response = api.searchCharacters(name)
+                if (!response.isSuccessful) {
+                    return Result.failure(Exception("Error de red ${response.code()}"))
+                }
+                val characters = response.body() ?: emptyList()
+                return Result.success(CharactersResponseDto(items = characters))
+            }
+
             val response = api.getCharacters(page, limit, name, gender, race)
             if (!response.isSuccessful) {
                 return Result.failure(Exception("Error de red ${response.code()}"))
