@@ -1,9 +1,9 @@
 package com.edu.ucne.dragonballzplanets.Data.Remote.RemoteDataSource
 
-import coil3.network.HttpException
 import com.edu.ucne.dragonballzplanets.Data.Dto.PlanetDto
 import com.edu.ucne.dragonballzplanets.Data.Dto.PlanetsResponseDto
 import com.edu.ucne.dragonballzplanets.Data.Remote.DragonBallApi
+import retrofit2.HttpException
 import jakarta.inject.Inject
 
 class PlanetRemoteDataSource @Inject constructor(

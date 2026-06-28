@@ -1,4 +1,4 @@
-package com.edu.ucne.dragonballzplanets.Presentation.Detail
+package com.edu.ucne.dragonballzplanets.Presentation.Detail.Planet
 
 import com.edu.ucne.dragonballzplanets.Domain.Model.Planet
 

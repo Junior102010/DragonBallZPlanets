@@ -1,4 +1,4 @@
-package com.edu.ucne.dragonballzplanets.Presentation.List
+package com.edu.ucne.dragonballzplanets.Presentation.List.Planet
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.edu.ucne.dragonballzplanets.Domain.Model.Planet
+import com.edu.ucne.dragonballzplanets.Presentation.List.Planet.PlanetListViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
