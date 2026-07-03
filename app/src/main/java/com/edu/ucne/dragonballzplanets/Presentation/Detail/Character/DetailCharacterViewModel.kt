@@ -16,19 +16,15 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class DetailCharacterViewModel @Inject constructor(
-    private val getCharacterDetailUseCase: GetCharacterDetailUseCase,
-    savedStateHandle: SavedStateHandle
+    private val getCharacterDetailUseCase: GetCharacterDetailUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(DetailCharacterUiState())
     val state = _state.asStateFlow()
 
-    init {
-        val args = savedStateHandle.toRoute<Screen.CharacterDetail>()
-        loadCharacter(args.id)
-    }
 
-    private fun loadCharacter(id: Int) {
+
+    fun loadCharacter(id: Int) {
         viewModelScope.launch {
             getCharacterDetailUseCase(id).collect{  result->
                 when (result ) {

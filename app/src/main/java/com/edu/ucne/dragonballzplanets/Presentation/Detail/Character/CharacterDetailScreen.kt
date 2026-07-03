@@ -13,16 +13,27 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
+import com.edu.ucne.dragonballzplanets.Presentation.Detail.Planet.DetailPlanetViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharacterDetailScreen(
+    characterId: Int,
+    viewModel: DetailCharacterViewModel = hiltViewModel(),
     state: DetailCharacterUiState,
     onBack: () -> Unit
 ) {
+
+    LaunchedEffect(characterId) {
+        viewModel.loadCharacter(characterId)
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(

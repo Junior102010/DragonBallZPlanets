@@ -16,6 +16,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -26,10 +27,15 @@ import coil3.compose.AsyncImage
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlanetDetailScreen(
+    planetId: Int,
     viewModel: DetailPlanetViewModel = hiltViewModel(),
     onBack: () -> Unit
 ){
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LaunchedEffect(planetId) {
+        viewModel.loadPlanet(planetId)
+    }
 
     Scaffold(
         topBar = {
